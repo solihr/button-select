@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+
+    <form role="form" id="formbtn" class="formbtn" data-toggle="validator">
+        <button type="submit" id="MultiSelect" value="Option One">Option One</button>
+    </form>
+    <form role="form" id="formbtn" class="formbtn" data-toggle="validator">
+        <button type="submit" id="MultiSelect" value="Option Two">Option Two</button>
+    </form>
+    <form role="form" id="formbtn" class="formbtn" data-toggle="validator">
+        <button type="submit" id="MultiSelect" value="Option Three">Option Three</button>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            var userSelection = document.getElementsByClassName("formbtn");
+            for(var i = 0; i < userSelection.length; i++) {
+                (function(index) {
+                    userSelection[index].addEventListener("click", function() {
+                        event.preventDefault();
+                        let val = document.getElementById("MultiSelect");
+                        localStorage.setItem("MultiSelect", val.value);
+                        window.location.href = "2.html";
+                    })
+                })(i);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

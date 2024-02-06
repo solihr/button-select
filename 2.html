@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <title>Title</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+  <form>
+    <select id="MultiSelect" multiple>
+      <option value="Option One">Option One</option>
+      <option value="Option Two">Option Two</option>
+      <option value="Option Three">Option Three</option>
+    </select>
+  </form>
+
+  <script>
+    $(document).ready(function(){
+      $("#MultiSelect").change(function() {
+          localStorage.setItem(this.id, this.value);
+      }).val(function() {
+          return localStorage.getItem(this.id)
+      });
+    });
+  </script>
+
+</body>
+
+</html>
